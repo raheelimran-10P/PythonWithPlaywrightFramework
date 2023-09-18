@@ -1,5 +1,5 @@
 import logging
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright, Page
 from dotenv import load_dotenv
 from Pages.demo_page import DemoPage
 
@@ -7,7 +7,7 @@ from Pages.demo_page import DemoPage
 load_dotenv()
 
 
-def test_demo(page):
+def test_demo(page: Page):
 
     demo_page = DemoPage(page)
     logging.info("Starting the test...")
