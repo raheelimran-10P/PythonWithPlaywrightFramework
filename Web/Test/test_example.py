@@ -14,7 +14,7 @@ def test_demo_01(set_up_tear_down) -> None:
     demo_page = DemoPage(page)
     logging.info("Starting the test...")
     demo_page.navigate()
-    demo_page.abc()
+    demo_page.installation()
 
 def test_demo_02(set_up_tear_down) -> None:
     pass

@@ -4,9 +4,6 @@ from playwright.sync_api import expect
 import re
 from TestData.test_data import TestData
 
-# # Load environment variables from the .env file
-# load_dotenv()
-
 class DemoPage:
 
     def __init__(self, page):
@@ -17,7 +14,7 @@ class DemoPage:
     def navigate(self):
         self.page.goto(os.getenv("BASE_URL"))
 
-    def abc(self):
+    def installation(self):
         self._get_started.click(timeout=TestData.TIMEOUT_IN_MILLISECONDS)
         expect(self._installation).to_be_visible()  
         expect(self.page).to_have_title(re.compile("Playwright"))
