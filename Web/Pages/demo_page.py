@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 from playwright.sync_api import expect
 import re
-from TestData.test_data import TestData
+from Web.TestData.test_data import TestData
 
 class DemoPage:
 
