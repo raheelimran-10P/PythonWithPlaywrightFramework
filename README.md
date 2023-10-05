@@ -20,5 +20,5 @@ BASE_URL=<place-your-url-here>
 ```
 
 ## Running Tests by command line or terminal
-Run tests simply using the `pytest .\Test\test_example.py` or `pytest .\Test` command.
-For api tests simply using the `pytest .\Api` command.
+Run tests simply using the `pytest .\Web\Test\test_example.py` or `pytest .\Web\Test` command.
+For api tests simply using the `pytest .\API` or `pytest .\API\Test` command.
