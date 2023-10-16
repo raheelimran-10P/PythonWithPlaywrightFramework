@@ -21,16 +21,28 @@ PASSWORD=<place-your-password-here>
 
 ## Running Web Tests by command line or terminal
 To run a single test file pass in the name of the test file that you want to run.
-```pytest .\Web\Test\test_qapage_examples.py` 
+```
+pytest .\Web\Test\test_qapage_examples.py
+``` 
 To run a set of test files pass in the names of the test files that you want to run.
-```pytest .\Web\Test```
+```
+pytest .\Web\Test
+```
 To run a specific test pass in the function name of the test you want to run. 
-```pytest -k test_demo_02```
+```
+pytest -k test_demo_02
+```
 
 ## Running Api Tests by command line or terminal
 To run a single test file pass in the name of the test file that you want to run.
-```pytest .\API\Test\test_api_examples.py` 
+```
+pytest .\API\Test\test_api_examples.py
+``` 
 To run a set of test files pass in the names of the test files that you want to run.
-```pytest .\API\Test```
+```
+pytest .\API\Test
+```
 To run a specific test pass in the function name of the test you want to run. 
-```pytest -k test_get_example```
+```
+pytest -k test_get_example
+```
