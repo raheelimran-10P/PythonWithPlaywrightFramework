@@ -13,18 +13,24 @@ To set up this project on your local machine:
 
 ## Setup .env file
 
-Create .env file at the root of the project location, and add below values like
+Create .env file at the root of the project location, and add below values like sensitive information password or key
 ```
-BASE_URL=<place-your-url-here>
+PASSWORD=<place-your-password-here>
 
 ```
 
-## Running Tests by command line or terminal
+## Running Web Tests by command line or terminal
 To run a single test file pass in the name of the test file that you want to run.
-```pytest .\Web\Test\test_example.py` 
+```pytest .\Web\Test\test_qapage_examples.py` 
 To run a set of test files pass in the names of the test files that you want to run.
 ```pytest .\Web\Test```
 To run a specific test pass in the function name of the test you want to run. 
 ```pytest -k test_demo_02```
 
-For api tests simply using the `pytest .\API` or `pytest .\API\Test` command.
+## Running Api Tests by command line or terminal
+To run a single test file pass in the name of the test file that you want to run.
+```pytest .\API\Test\test_api_examples.py` 
+To run a set of test files pass in the names of the test files that you want to run.
+```pytest .\API\Test```
+To run a specific test pass in the function name of the test you want to run. 
+```pytest -k test_get_example```

@@ -13,7 +13,7 @@ is_env_file_loaded = load_dotenv()
 if not is_env_file_loaded: 
     raise FileNotFoundError(".env file was not found! or not exist is a root directory")
 
-def test_demo_03(set_up_tear_down) -> None:
+def test_demo_01(set_up_tear_down) -> None:
     page = set_up_tear_down
     demo_qa_page = DemoQaPage(page)
     logging.info("Starting the test...")
@@ -21,7 +21,7 @@ def test_demo_03(set_up_tear_down) -> None:
     txt = RandomParagraphGenerator().generate_sentence()
     demo_qa_page.text_box_activity(current_address=txt, parmenant_address=txt)
 
-def test_demo_04(set_up_tear_down) -> None:
+def test_demo_02(set_up_tear_down) -> None:
     page = set_up_tear_down
     demo_qa_page = DemoQaPage(page)
     logging.info("Starting the test...")
