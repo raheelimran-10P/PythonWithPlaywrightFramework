@@ -46,3 +46,10 @@ To run a specific test pass in the function name of the test you want to run.
 ```
 pytest -k test_get_example
 ```
+
+For Allure Report view.
+Open the Report folder in cmd and Run the below command
+```
+allure serve allure-report
+``` 
+For more details follow the following link: https://allurereport.org/docs/frameworks/python/pytest/
