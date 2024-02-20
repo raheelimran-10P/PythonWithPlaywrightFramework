@@ -70,3 +70,19 @@ def test_demo_03(set_up_tear_down) -> None:
     title = demo_qa_page.page.title()
     assert title == 'DEMOQA', f"Unexpected title: {title}"
     demo_qa_page.practice_form()
+
+@allure.title("Login Activity")
+@allure.description("This test is to perform activity on practise form.\n\nNote that this test is a demo test.")
+@allure.tag("NewUI", "Essentials")
+@allure.severity(allure.severity_level.CRITICAL)
+@allure.label("qa", TestData.QA_PERSON)
+@allure.link(TestData.URL, name="Website")
+@allure.testcase("", name="DV-0000")
+def test_demo_04(set_up_tear_down) -> None:
+    page = set_up_tear_down
+    demo_qa_page = DemoQaPage(page)
+    logging.info("Starting the test...")
+    demo_qa_page.nagivate_to(TestData.URL)
+    title = demo_qa_page.page.title()
+    assert title == 'DEMOQA', f"Unexpected title: {title}"
+    demo_qa_page.login_activity(username=os.getenv("LOGIN_USERNAME"), password=os.getenv("PASSWORD"))
