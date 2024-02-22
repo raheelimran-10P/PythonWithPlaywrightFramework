@@ -14,8 +14,8 @@ import allure
 # Load environment variables from the .env file ay the root of the project
 # used any sensitive information like PASSWORD=os.getenv("PASSWORD")
 is_env_file_loaded = load_dotenv()
-if not is_env_file_loaded: 
-    raise FileNotFoundError(".env file was not found! or not exist is a root directory")
+# if not is_env_file_loaded: 
+#     raise FileNotFoundError(".env file was not found! or not exist is a root directory")
 
 @allure.title("Test Box Activity")
 @allure.description("This test is add text in text fileds.\n\nNote that this test is a demo test.")
