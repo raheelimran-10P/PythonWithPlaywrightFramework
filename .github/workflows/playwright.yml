@@ -1,9 +1,9 @@
 name: Playwright Tests
 on:
   push:
-    branches: [ main, master ]
+    branches: [ feat/DV-000, main ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ feat/DV-000, main ]
   workflow_dispatch:
 jobs:
   test:
@@ -20,15 +20,14 @@ jobs:
       with:
         activate-environment: PythonWithPlaywrightVEnv
         environment-file: Config/environment.yml
-    - name: Install dependencies
+    - name: Activate Conda Environment and Run tests
       run: |
-        conda activate PythonWithPlaywrightVEnv
-    - name: Ensure browsers are installed
-      run: python -m playwright install --with-deps
-    - name: Run your tests
-      run: python -m pytest
+        conda init bash
+        source "$(conda info --base)/etc/profile.d/conda.sh" && conda activate PythonWithPlaywrightVEnv
+        playwright install
+        python -m pytest
     - uses: actions/upload-artifact@v3
       if: always()
       with:
-        name: playwright-traces
-        path: test-results/
+        name: playwright-reports
+        path: Report/
