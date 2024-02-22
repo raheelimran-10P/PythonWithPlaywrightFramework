@@ -1,7 +1,7 @@
 # PythonWithPlaywrightFramework
  Python with Playwright Framework
 
-## Setup
+## Setup locally on system
 This project requires an up-to-date version of Python 3.
 It also uses [conda](https://docs.conda.io) to manage packages.
 
@@ -19,32 +19,51 @@ PASSWORD=<place-your-password-here>
 
 ```
 
+## Setup on docker
+After installing docker desktop, open the cmd on the root of the project.
+Use this command to create the image
+```
+docker build -t playwright-docker:v1.0.0 .
+``` 
+After the image, run the container by below command.
+```
+docker run -it --env-file .env --name playwright-docker playwright-docker:v1.0.0
+``` 
+After this now, run the pytest command to cmd screen that will execute the test cases
+For later used below commands will be used.
+```
+docker restart playwright-docker
+docker exec -it playwright-docker /bin/bash
+``` 
+
+
 ## Running Web Tests by command line or terminal
 To run a single test file pass in the name of the test file that you want to run.
+Note: for headness remove --headed param in the command
 ```
-pytest .\Web\Test\test_qapage_examples.py
+python -m pytest .\Web\Test\test_qapage_examples.py --headed
 ``` 
 To run a set of test files pass in the names of the test files that you want to run.
 ```
-pytest .\Web\Test
+python -m pytest .\Web\Test --headed
 ```
 To run a specific test pass in the function name of the test you want to run. 
 ```
-pytest -k test_demo_02
+python -m pytest -k test_demo_02 --headed
 ```
 
 ## Running Api Tests by command line or terminal
 To run a single test file pass in the name of the test file that you want to run.
 ```
-pytest .\API\Test\test_api_examples.py
+python -m pytest .\API\Test\test_api_examples.py
 ``` 
 To run a set of test files pass in the names of the test files that you want to run.
 ```
-pytest .\API\Test
+python -m pytest .\API\Test
 ```
 To run a specific test pass in the function name of the test you want to run. 
 ```
-pytest -k test_get_example
+python -m pytest -k test_get_example
 ```
 
 For Allure Report view.
