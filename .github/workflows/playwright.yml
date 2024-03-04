@@ -9,15 +9,16 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    env:
+      LOGIN_USERNAME: ${{ secrets.LOGIN_USERNAME }}
+      PASSWORD: ${{ secrets.PASSWORD }}
+
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
         python-version: '3.11'
-    - name: Debugging
-      run: |
-        echo "LOGIN_USERNAME: ${{ secrets.LOGIN_USERNAME }}"
     - name: Set up Conda
       uses: conda-incubator/setup-miniconda@v2
       with:
