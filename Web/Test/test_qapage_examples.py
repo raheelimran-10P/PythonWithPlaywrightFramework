@@ -86,4 +86,4 @@ def test_demo_04(set_up_tear_down) -> None:
     demo_qa_page.nagivate_to(TestData.URL)
     title = demo_qa_page.page.title()
     assert title == 'DEMOQA', f"Unexpected title: {title}"
-    demo_qa_page.login_activity(username=os.getenv("LOGIN_USERNAME"), password=os.getenv("PASSWORD"))
+    demo_qa_page.login_activity(username=os.getenv("LOGIN_USERNAME"), password=os.getenv("PASSWORD")) 
