@@ -25,6 +25,11 @@ class DemoQaPage:
         self._male = page.get_by_text("Male", exact=True)
         self._user_number = page.get_by_placeholder("Mobile Number")
         self._hobbie = page.get_by_text("Sports")
+        self._book_store_link = page.get_by_text("Book Store Application")
+        self._login = page.locator("xpath=//span[contains(text(),'Login')]")
+        self._username = page.locator("xpath=//input[@id='userName']")
+        self._password = page.locator("xpath=//input[@id='password']")
+        self._login = page.get_by_role("button", name="Login")
 
     def nagivate_to(self, url):
         self.page.goto(url)
@@ -94,6 +99,22 @@ class DemoQaPage:
         self._user_number.fill(user_number)
         if not self._hobbie.is_checked():
             self._hobbie.check()
+
+    def login_activity(self, username: str, password: str) -> None:
+        expect(self._book_store_link).to_be_visible()
+        self._book_store_link.click()
+        expect(self._login).to_be_visible()
+        self._login.click()
+        expect(self._username).to_be_editable()
+        self._username.clear()
+        self._username.fill(username)
+        expect(self._password).to_be_editable()
+        self._password.clear()
+        self._password.fill(password)
+        expect(self._login).to_be_enabled()
+        self._login.click()
+        expect(self.page.get_by_text(username)).to_be_visible()
+
 
 
 

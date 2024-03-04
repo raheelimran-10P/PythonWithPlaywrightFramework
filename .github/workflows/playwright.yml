@@ -1,0 +1,33 @@
+name: Playwright Tests
+on:
+  workflow_dispatch:
+jobs:
+  test:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+    env:
+      LOGIN_USERNAME: ${{ secrets.LOGIN_USERNAME }}
+      PASSWORD: ${{ secrets.PASSWORD }}
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
+    - name: Set up Conda
+      uses: conda-incubator/setup-miniconda@v2
+      with:
+        activate-environment: PythonWithPlaywrightVEnv
+        environment-file: Config/environment.yml
+    - name: Activate Conda Environment and Run tests
+      run: |
+        conda init bash
+        source "$(conda info --base)/etc/profile.d/conda.sh" && conda activate PythonWithPlaywrightVEnv
+        playwright install
+        python -m pytest
+    - uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: playwright-reports
+        path: Report/

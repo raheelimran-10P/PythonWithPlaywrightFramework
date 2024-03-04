@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  playwright-docker:
+    image: playwright-docker:v1.0.0
+    environment:
+      - DOCKER_CONTAINER=true
+    env_file:
+      - .env
+    stdin_open: true
+    tty: true
+    container_name: playwright-docker
