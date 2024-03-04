@@ -33,14 +33,13 @@ or if you want volume then execute following command.
 ```
 docker run -it --env-file .env -v playwright-docker-volume:/usr/src/app --name playwright-docker playwright-docker:v1.0.0
 ```
-Also you can use following command as well
+Also you can use following command as well for running docker container.
 ```
 docker compose up
 ```
 After this now, run the pytest command to cmd screen that will execute the test cases
 For later used below commands will be used.
 ```
-docker restart playwright-docker
 docker exec -it playwright-docker /bin/bash
 docker cp playwright-docker:/usr/src/app/Report %USERPROFILE%\Desktop
 ``` 
