@@ -49,11 +49,12 @@ def test_demo_02(set_up_tear_down) -> None:
     demo_qa_page.nagivate_to(TestData.URL)
     title = demo_qa_page.page.title()
     assert title == 'DEMOQA', f"Unexpected title: {title}"
-    downloads_path = DownloadsPathFinder().get_downloads_path()
+    # downloads_path = DownloadsPathFinder().get_downloads_path()
+    downloads_path = "Web\\TestData\\Image Files\\"
     demo_qa_page.download_and_upload(path=downloads_path, file_name=TestData.FILE_NAME)
     expect(page.get_by_text("sampleFile.jpeg")).to_be_visible()
-    time.sleep(5)
-    os.remove(downloads_path+"\\"+TestData.FILE_NAME)
+    # time.sleep(5)
+    # os.remove(downloads_path+"\\"+TestData.FILE_NAME)
 
 @allure.title("Practice Form Activity")
 @allure.description("This test is to perform activity on practise form.\n\nNote that this test is a demo test.")
