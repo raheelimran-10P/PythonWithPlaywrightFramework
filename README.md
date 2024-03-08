@@ -21,15 +21,15 @@ PASSWORD=<place-your-password-here>
 
 ## Setup on docker
 After installing docker desktop, open the cmd on the root of the project.
-Use this command to create the image
+Use this command to create the image of this code.
 ```
 docker build -t playwright-docker:v1.0.0 .
 ``` 
-After the image, run the container execute following command.
+After the image, run the below command for open run container or open terminal for executing commands.
 ```
 docker run -it --env-file .env --name playwright-docker playwright-docker:v1.0.0
 ``` 
-or if you want volume then execute following command.
+or if you want add volume then execute following command.
 ```
 docker run -it --env-file .env -v playwright-docker-volume:/usr/src/app --name playwright-docker playwright-docker:v1.0.0
 ```
