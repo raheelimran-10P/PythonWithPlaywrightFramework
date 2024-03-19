@@ -16,7 +16,8 @@ services:
     tty: true
     container_name: playwright-docker
     volumes:
-      - playwright-docker-volume:/usr/src/app
+      - playwright-docker-volume:/usr/src/app/Logs
+      - playwright-docker-volume:/usr/src/app/Report
 
 volumes:
   playwright-docker-volume:
